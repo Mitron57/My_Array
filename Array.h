@@ -32,6 +32,13 @@ public:
         array.ptr_array = nullptr;
     }
     
+    Array(Type elem, std::uint32_t count): ptr_array(new Type[count]) {
+        if(count==Size)
+            std::fill(begin(), end(), elem);
+        else
+            throw std::length_error("Count of elements is greater than size of array.");
+    }
+    
     virtual ~Array() noexcept {
         delete[] ptr_array;
     };
