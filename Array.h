@@ -21,7 +21,7 @@ public:
     Array() : ptr_array(new Type[Size]) {}
     
     Array(std::initializer_list<Type> list): ptr_array(new Type[list.size()]) {
-        memcpy(begin(), list.begin(), list.size()*sizeof(Type));
+        memcpy(begin(), list.begin(), list.size() * sizeof(Type));
     }
     
     Array(Array<Type, Size> &array) : ptr_array(new Type[Size]) {
@@ -63,7 +63,7 @@ public:
     Array &operator=(Array<Type, Size> const &array) {
         if (this == array.self())
             return *this;
-        memcpy(this->ptr_array, array.ptr_array, Size * sizeof(Type));
+        memcpy(begin(), array.begin(), Size * sizeof(Type));
         return *this;
     }
 
