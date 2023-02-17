@@ -33,7 +33,7 @@ public:
     }
     
     Array(Type elem, std::uint32_t count): ptr_array(new Type[count]) {
-        if(count==Size)
+        if (count == Size)
             std::fill(begin(), end(), elem);
         else
             throw std::length_error("Count of elements is greater than size of array.");
@@ -45,8 +45,9 @@ public:
 
     friend std::ostream &operator<<(std::ostream &stream, Array<Type, Size> &array) {
         std::for_each(array.begin(), array.end(), [&stream](const auto& elem) {
-            stream<<elem<<" ";
+            stream << elem << " ";
         });
+        stream << std::endl;
         return stream;
     }
 
