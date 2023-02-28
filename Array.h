@@ -52,7 +52,7 @@ public:
     }
 
     Type &operator[](std::int32_t index) const noexcept {
-        if (index >= 0 && index <= Size) {
+        if (index >= 0 && index < Size) {
             return *(Array::ptr_array + index);
         } else if (std::abs(index) <= Size) {
             return *(Array::ptr_array + (Size + index));
